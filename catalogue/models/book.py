@@ -23,13 +23,19 @@ class Book(models.Model):
     def __str__(self):
         return f"{self.title}"
 
-    def get_absolute_url(self):
-        return reverse("book-detail", args=[str(self.id)])
-
     def display_genre(self):
         return ", ".join(genre.name for genre in self.genre.all()[:2])
 
     display_genre.short_description = "Genre"
+
+    def exclude_by_title(exlude_title):
+        return Book.objects.all().exclude(title__icontains=exlude_title)
+
+    def filter_by_matching_title(text_match):
+        return Book.objects.filter(title__icontains=text_match)
+    
+    def get_absolute_url(self):
+        return reverse("book-detail", args=[str(self.id)])
 
 
 class BookAdmin(admin.ModelAdmin):

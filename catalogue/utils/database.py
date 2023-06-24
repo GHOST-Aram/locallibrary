@@ -2,12 +2,12 @@ class Database:
     def count_all(self, queryset):
         return queryset.count()
 
-    def retrieve_all(self, model):
-        return model.objects.all()
+    def retrieve_all(self, entry):
+        return entry.objects.all()
 
-    def insert_data(new_data_instance):
-        new_data_instance.save()
+    def insert_data(new_entry):
+        new_entry.save()
 
-    def update_data(updated_model_instance):
-        updated_model_instance.save()
+    def update_data(updated_entry):
+        updated_entry.save()
 
