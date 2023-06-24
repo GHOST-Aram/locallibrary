@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from .genre_models import Genre
+from .genre import Genre
 from django.urls import reverse
 
 

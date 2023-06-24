@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models.author_models import Author
-from .models.book_models import Book
-from .models.bookInstance_models import BookInstance
-from .models.genre_models import Genre
+from .models.author import Author
+from .models.book import Book
+from .models.bookInstance import BookInstance
+from .models.genre import Genre
 from .utils.database import Database
 
 def index(request):

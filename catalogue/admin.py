@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models.author_models import Author, AuthorAdmin
-from .models.book_models import Book, BookAdmin
-from .models.bookInstance_models import BookInstance, BookInstanceAdmin
-from .models.genre_models import Genre
-from .models.language_models import Language
+from .models.author import Author, AuthorAdmin
+from .models.book import Book, BookAdmin
+from .models.bookInstance import BookInstance, BookInstanceAdmin
+from .models.genre import Genre
+from .models.language import Language
 
 admin.site.register(Author, AuthorAdmin)   
 admin.site.register(Book, BookAdmin)
