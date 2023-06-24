@@ -45,7 +45,7 @@ class BookInstance(models.Model):
 
 
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ("display_id", "display_title", "status")
+    list_display = ("display_id", "display_title", "status", 'due_back')
     list_filter = ("status", "due_back")
     exclude = ["id"]
     fieldsets = (
