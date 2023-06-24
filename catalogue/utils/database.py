@@ -1,13 +1,13 @@
 class Database:
+    def count_all(self, queryset):
+        return queryset.count()
 
-    def get_all(self, model):
+    def retrieve_all(self, model):
         return model.objects.all()
 
-    def count_all(self, model):
-        return self.get_all(model).count()
-    
-    def filter_by_status_exact(self, model, status):
-        return model.objects.filter(status__exact=status)
-    
-    def count_all_by_status_exact(self, model, status):
-        return self.filter_by_status_exact(model, status).count()
+    def insert_data(new_data_instance):
+        new_data_instance.save()
+
+    def update_data(updated_model_instance):
+        updated_model_instance.save()
+

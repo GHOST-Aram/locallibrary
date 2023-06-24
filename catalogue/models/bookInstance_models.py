@@ -33,7 +33,7 @@ class BookInstance(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.book.title}"
-
+    
     def display_title(self):
         return self.book.title
 
@@ -43,6 +43,9 @@ class BookInstance(models.Model):
     display_title.short_description = "Title"
     display_id.short_description = "Unique Id"
 
+    def filter_data_by_status(status):
+        return BookInstance.objects.filter(status__exact=status)
+    
 
 class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ("display_id", "display_title", "status", 'due_back')
