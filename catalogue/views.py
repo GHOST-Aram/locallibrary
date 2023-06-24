@@ -10,7 +10,7 @@ def index(request):
     num_of_authors = database.count_all(Author)
     num_of_books = database.count_all(Book)
     num_of_instances = database.count_all(BookInstance)
-    num_instances_available = database.count_all_by_status_exact(BookInstance, 'a') 
+    num_instances_available = database.count_all_by_status_exact(BookInstance, 'a')
 
     context = {
         'num_of_authors': num_of_authors,
