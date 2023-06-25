@@ -31,12 +31,23 @@ class Book(models.Model):
     def exclude_by_title(exlude_title):
         return Book.objects.all().exclude(title__icontains=exlude_title)
 
+    def get_by_exact_title(book_title):
+        return Book.objects.get(title__iexact=book_title)
+    
     def filter_by_matching_title(text_match):
         return Book.objects.filter(title__icontains=text_match)
     
+    def filter_by_title_start(start_text):
+        return Book.objects.filter(title__istartswith=start_text)
+
+    def filter_by_title_end(end_text):
+        return Book.objects.filter(title__iendswith=end_text)
+
     def get_absolute_url(self):
         return reverse("book-detail", args=[str(self.id)])
-
+    
+    def order_by_title():
+        return Book.objects.order_by('title')
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ("isbn", "__str__", "author", "display_genre")

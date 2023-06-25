@@ -1,4 +1,5 @@
-class Database:
+
+class Table:
     def count_all(self, queryset):
         return queryset.count()
 
