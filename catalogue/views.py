@@ -53,13 +53,14 @@ class BookListView(generic.ListView):
     context_object_name = 'book_list'
     # queryset = Book.filter_by_matching_title('how')[:3]
     template_name = 'catalogue/book_list.html'
+    paginate_by = 2
     
     def get_queryset(self):
-        return Book.filter_by_matching_title('how')
+        return Book.objects.all()
     
 class BookDetailView(generic.DetailView):
     model = Book
-    context_object_name = 'book_detail'
+    context_object_name = 'book'
     template_name = 'catalogue/book_detail.html'
     extra_context ={'owner': 'Maseno University Library'}
 

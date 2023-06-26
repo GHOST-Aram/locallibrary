@@ -16,8 +16,8 @@ class BookInstance(models.Model):
     LOAN_STATUS = (
         ("m", "Maintenance"),
         ("o", "On loan"),
-        ("a", "available"),
-        ("r", "reserved"),
+        ("a", "Available"),
+        ("r", "Reserved"),
     )
 
     status = models.CharField(
