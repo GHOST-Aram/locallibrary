@@ -31,6 +31,9 @@ class Book(models.Model):
     def exclude_by_title(exlude_title):
         return Book.objects.all().exclude(title__icontains=exlude_title)
 
+    def get_absolute_url(self):
+        return reverse("book-detail", args=[str(self.id)])
+    
     def get_by_exact_title(book_title):
         return Book.objects.get(title__iexact=book_title)
     
@@ -43,9 +46,6 @@ class Book(models.Model):
     def filter_by_title_end(end_text):
         return Book.objects.filter(title__iendswith=end_text)
 
-    def get_absolute_url(self):
-        return reverse("book-detail", args=[str(self.id)])
-    
     def order_by_title():
         return Book.objects.order_by('title')
 

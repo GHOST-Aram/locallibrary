@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from .models.author import Author
 from .models.book import Book
 from .models.bookInstance import BookInstance
@@ -44,3 +45,24 @@ def index(request):
     }
 
     return render(request, 'index.html', context=context)
+
+class BookListView(generic.ListView):
+    model = Book
+
+    # Overidding ListView Properties
+    context_object_name = 'book_list'
+    # queryset = Book.filter_by_matching_title('how')[:3]
+    template_name = 'catalogue/book_list.html'
+    
+    def get_queryset(self):
+        return Book.filter_by_matching_title('how')
+    
+class BookDetailView(generic.DetailView):
+    model = Book
+    context_object_name = 'book_detail'
+    template_name = 'catalogue/book_detail.html'
+    extra_context ={'owner': 'Maseno University Library'}
+
+    def get_queryset(self):
+        return super().get_queryset()
+    
